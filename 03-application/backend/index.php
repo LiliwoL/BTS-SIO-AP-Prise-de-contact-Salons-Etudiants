@@ -21,7 +21,8 @@ if ( isset($_POST['submit']) )
 
     # Utilisation d'une requête préparée pour éviter les injections SQL
     # ----------------------------------------------------------------
-    $reqSQL ='INSERT INTO Eleve (Nom, Prenom, Formation, Mail, Tel, Remarque, _Date) VALUES (:nom, :prenom, :formation, :mail, :tel, :remarque, :date)'; # Il est préférable d'éviter les double quotes en SQL
+    $reqSQL ='INSERT INTO Contact (nom, prenom, idFormation, idVoie, mail, telephone, remarque, date) VALUES (:nom, :prenom, :formation, :voie, :mail, :tel, :remarque, :date)';
+    # Il est préférable d'éviter les double quotes en SQL
 
     # Préparation de la requête
     $sqlStatement = $db->prepare($reqSQL);
@@ -30,6 +31,7 @@ if ( isset($_POST['submit']) )
     $sqlStatement->bindParam(':nom',            $_POST['nom']);
     $sqlStatement->bindParam(':prenom',         $_POST['prenom']);
     $sqlStatement->bindParam(':formation',      $_POST['formation']);
+    $sqlStatement->bindParam(':voie',           $_POST['choix']);
     $sqlStatement->bindParam(':mail',           $_POST['email']);
     $sqlStatement->bindParam(':tel',            $_POST['number']);
     $sqlStatement->bindParam(':remarque',       $_POST['remarque']);
@@ -44,14 +46,14 @@ if ( isset($_POST['submit']) )
     # Affichage du Résultat
     if ($result == true)
     {
-        echo "Eleve ajouté dans la base";
+        echo "Contact ajouté dans la base";
     }else{
         echo "Erreur";
     }
 
     #envoie la requète en base de donnée
-    #$db->query($reqSQL);
-    #$db->exec($reqSQL);
+    $db->query($reqSQL);
+    $db->exec($reqSQL);
 }
 
 ?>
