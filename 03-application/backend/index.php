@@ -27,6 +27,8 @@ if ( isset($_POST['submit']) )
     # Préparation de la requête
     $sqlStatement = $db->prepare($reqSQL);
 
+    $date = date("Y-m-d");
+
     # Affectation des paramètres
     $sqlStatement->bindParam(':nom',            $_POST['nom']);
     $sqlStatement->bindParam(':prenom',         $_POST['prenom']);
@@ -35,7 +37,7 @@ if ( isset($_POST['submit']) )
     $sqlStatement->bindParam(':mail',           $_POST['email']);
     $sqlStatement->bindParam(':tel',            $_POST['number']);
     $sqlStatement->bindParam(':remarque',       $_POST['remarque']);
-    $sqlStatement->bindParam(':date', date("Y-m-d"));
+    $sqlStatement->bindParam(':date',           $date);
 
     # Execution de la requête préparée
     $result = $sqlStatement->execute();
