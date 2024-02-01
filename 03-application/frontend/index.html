@@ -21,7 +21,7 @@
 <body>
     <div class="container">
         <!-- Le formulaire va exécuter l'action action.php (script sur le serveur) en utilisant la méthode POST -->
-        <form method="POST" action="http://172.16.3.254/BTS-SIO-AP-Prise-de-contact-Salons-Etudiants/03-application/backend/action.php">
+        <form method="POST" action="http://172.16.3.254/BTS-SIO-AP-Prise-de-contact-Salons-Etudiants/03-application/backend/index.php">
             <h1 id="titre">Salon Passerelle</h1>
             <p>Informations du / de la candidat.e</p>
 
@@ -32,20 +32,37 @@
             <input id="prenom" class="form-control" type="text" name="prenom"placeholder="Entrez votre réponse">
 
 
-            <label class="form-check-label">3.Voix souhaitée</label>
-            <input class="form-check-input" type="radio" name="choix" value="0">Apprentissage
-            <input class="form-check-input" type="radio" name="choix" value="1">Initiale
-            <input class="form-check-input" type="radio" name="choix" value="2">Ne sais pas encore
+            3.Voix souhaitée
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="choix" value="1">
+                Initiale
+            </label>
+            <label>
+                <input class="form-check-input" type="radio" name="choix" value="2">
+                Apprentissage
+            </label>
+            <label>
+                <input class="form-check-input" type="radio" name="choix" value="3">
+                Ne sais pas encore
+            </label>
             <br>
 
             <label for="formation" class="form-label">4.Formation + niveau souhaité</label>
+            <select>
+                <option value="1">BTS SIO SLAM</option>
+                <option value="2">BTS SIO SISR</option>
+                <option value="3">Bac Pro SN</option>
+                <option value="4">BTS MCO</option>
+                <option value="5">BTS Immobilier</option>
+            </select>
+
             <input id="formation" class="form-control" type="text" name="formation" placeholder="Entrez votre réponse">
 
-            <label for="email" class="form-label">5.Mail du cancidat</label>
+            <label for="email" class="form-label">5.Mail du candidat</label>
             <input id="email" class="form-control" type="email" name="email" placeholder="Entrez votre réponse">
 
             <label for="number" class="form-label">6.Téléphone du candidat</label>
-            <input id="number" class="form-control" type="phone" name="number" placeholder="Entrez votre réponse">
+            <input id="number" class="form-control" type="tel" name="number" placeholder="Entrez votre réponse">
 
             <label for="remarque" class="form-label">7.Remarques / Observations</label>
             <textarea id="remarque" class="form-control" name="remarque" rows="7" cols="21"placeholder="Entrez votre réponse"></textarea>
