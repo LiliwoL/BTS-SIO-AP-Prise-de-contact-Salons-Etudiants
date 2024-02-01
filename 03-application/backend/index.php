@@ -11,7 +11,8 @@ if ( isset($_POST['submit']) )
         // 1. Le type de base, son nom et son hôte = DSN
         // 2. L'utilisateur
         // 3 . Le mot de passe
-    $db = new PDO('mysql:dbname=AP;host=127.0.0.1', 'slam1', 'SlaM1');
+    //$db = new PDO('mysql:dbname=AP;host=127.0.0.1', 'slam1', 'SlaM1');
+    $db = new PDO('sqlite:./DATA/database.sqlite');
 
 
     # Création de la requete SQL
